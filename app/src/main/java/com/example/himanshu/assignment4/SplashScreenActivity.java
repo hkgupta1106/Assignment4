@@ -1,6 +1,6 @@
 package com.example.himanshu.assignment4;
 
-import android.content.Context;
+
 import android.content.Intent;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +12,7 @@ import android.os.Bundle;
 public class SplashScreenActivity extends AppCompatActivity {
 
     private static final int SPLASH_SCREEN_TIMEOUT = 2000;
+
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +20,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(SplashScreenActivity.this,HomeScreenActivity.class);
+                Intent intent = new Intent(SplashScreenActivity.this, HomeScreenActivity.class);
                 startActivity(intent);
             }
         }, SPLASH_SCREEN_TIMEOUT);
