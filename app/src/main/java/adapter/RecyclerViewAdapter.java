@@ -7,10 +7,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import com.example.himanshu.assignment4.R;
 import com.example.himanshu.assignment4.ThirdActivity;
 
 import java.util.ArrayList;
+
 import model.BaseModel;
 
 /**
@@ -23,13 +25,18 @@ public class RecyclerViewAdapter extends android.support.v7.widget.RecyclerView.
     private BaseModel baseModel;
     private Context context;
 
+    /**
+     *
+     * @param baseModelList array list
+     * @param context context
+     */
     public RecyclerViewAdapter(final ArrayList<BaseModel> baseModelList, final Context context) {
         this.baseModelList = baseModelList;
         this.context = context;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerViewAdapter.ViewHolder holder, final int position) {
         baseModel = baseModelList.get(position);
         holder.tvName.setText(baseModel.getName());
 
@@ -58,6 +65,7 @@ public class RecyclerViewAdapter extends android.support.v7.widget.RecyclerView.
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tvName;
+
         /**
          * @param itemView itemm view
          */
@@ -67,8 +75,8 @@ public class RecyclerViewAdapter extends android.support.v7.widget.RecyclerView.
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(context,ThirdActivity.class);
+                public void onClick(final View v) {
+                    Intent intent = new Intent(context, ThirdActivity.class);
                     context.startActivity(intent);
                 }
             });

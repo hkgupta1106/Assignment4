@@ -1,6 +1,6 @@
 package com.example.himanshu.assignment4;
 
-import android.content.Context;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -24,9 +24,9 @@ public class HomeScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
 
-        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(baseModelList,this);
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(baseModelList, this);
 
-        RecyclerView recyclerView = (RecyclerView)findViewById(R.id.rv_display);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv_display);
         baseModel = new BaseModel("hitesh");
         baseModelList.add(baseModel);
         baseModel = new BaseModel("sumit");

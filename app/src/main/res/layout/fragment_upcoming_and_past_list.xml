@@ -1,46 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:orientation="vertical">
 
     <TextView
+        android:id="@+id/tv_heading"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/tv_heading"
+        android:layout_marginTop="@dimen/largeText"
         android:gravity="center"
         android:textSize="@dimen/xxxLargeText"
-        android:layout_marginTop="@dimen/largeText"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:gravity="center"
+        android:layout_margin="20dp"
         android:layout_marginTop="@dimen/xsmallText"
-        android:layout_margin="20dp">
+        android:layout_weight="1"
+        android:gravity="center">
+
         <Button
             android:id="@+id/btn_upcoming_divison1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/smallText"
             android:background="@color/colorAccent"
-            android:textColor="#FFFFFF"
-            android:layout_marginEnd="@dimen/smallText" />
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btn_upcoming_divison2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimaryDark"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
     <android.support.v4.view.ViewPager
+        android:id="@+id/vp_pager2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/vp_pager2"
-        android:layout_weight="7"/>
+        android:layout_weight="7" />
 
 </LinearLayout>

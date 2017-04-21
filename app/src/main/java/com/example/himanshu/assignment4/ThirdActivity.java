@@ -7,27 +7,38 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
 import fragment.UpcomingAndPastListFragment;
 
+/**
+ * third activity
+ */
 public class ThirdActivity extends AppCompatActivity {
 
     public static final String UP_COMING = "upcoming", PAST = "past";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_third);
 
         final ViewPager vpPager = (ViewPager) findViewById(R.id.vp_pager);
 
+        /**
+         * pager adapter
+         */
         class MyPagerAdapter extends FragmentStatePagerAdapter {
 
-            public MyPagerAdapter(FragmentManager fm) {
+            /**
+             *
+             * @param fm fragment manager object
+             */
+            public MyPagerAdapter(final FragmentManager fm) {
                 super(fm);
             }
 
             @Override
-            public Fragment getItem(int position) {
+            public Fragment getItem(final int position) {
 
                 switch (position) {
                     case 0:

@@ -14,18 +14,25 @@ import android.widget.TextView;
 
 import com.example.himanshu.assignment4.R;
 
+/**
+ * upcoming and past list fragment
+ */
 public class UpcomingAndPastListFragment extends Fragment {
 
     private static final String PENDING = "pending", COMPLETED = "completed", ACCEPTED = "accepted", CANCELED = "canceled";
-    String mode;
-    TextView tvHeading;
+    private String mode;
+    private TextView tvHeading;
 
+    /**
+     *
+     * @param mode mode
+     */
     public UpcomingAndPastListFragment(final String mode) {
         this.mode = mode;
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup viewGroup, Bundle SavedInstance) {
+    public View onCreateView(final LayoutInflater inflater, final ViewGroup viewGroup, final Bundle savedInstance) {
         View view;
         view = inflater.inflate(R.layout.fragment_upcoming_and_past_list, null);
         final Button btnUpcomingDivision1, btnUpcomingDivision2;
@@ -36,7 +43,7 @@ public class UpcomingAndPastListFragment extends Fragment {
         btnUpcomingDivision1 = (Button) view.findViewById(R.id.btn_upcoming_divison1);
         btnUpcomingDivision2 = (Button) view.findViewById(R.id.btn_upcoming_divison2);
 
-        if (mode.equals("upcoming")) {
+        if ("upcoming".equals(mode)) {
             tvHeading.setText("Upcoming List");
             btnUpcomingDivision1.setText("Pending");
             btnUpcomingDivision2.setText("Accepted");
@@ -48,12 +55,12 @@ public class UpcomingAndPastListFragment extends Fragment {
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            public void onPageScrolled(final int position, final float positionOffset, final int positionOffsetPixels) {
 
             }
 
             @Override
-            public void onPageSelected(int position) {
+            public void onPageSelected(final int position) {
                 switch (position) {
                     case 0:
                         btnUpcomingDivision1.setBackgroundResource(R.color.colorAccent);
@@ -63,11 +70,15 @@ public class UpcomingAndPastListFragment extends Fragment {
                         btnUpcomingDivision1.setBackgroundResource(R.color.colorPrimary);
                         btnUpcomingDivision2.setBackgroundResource(R.color.colorAccent);
                         break;
+                    default:
+                        btnUpcomingDivision1.setBackgroundResource(R.color.colorAccent);
+                        btnUpcomingDivision2.setBackgroundResource(R.color.colorPrimary);
+                        break;
                 }
             }
 
             @Override
-            public void onPageScrollStateChanged(int state) {
+            public void onPageScrollStateChanged(final int state) {
 
             }
         });
@@ -75,16 +86,23 @@ public class UpcomingAndPastListFragment extends Fragment {
         return view;
     }
 
+    /**
+     * view pager adapter
+     */
     class InnerPagerAdapter extends FragmentStatePagerAdapter {
 
-        public InnerPagerAdapter(FragmentManager fm) {
+        /**
+         *
+         * @param fm fragment manager
+         */
+        public InnerPagerAdapter(final FragmentManager fm) {
             super(fm);
         }
 
         @Override
-        public Fragment getItem(int position) {
+        public Fragment getItem(final int position) {
 
-            if(mode.equals("upcoming")) {
+            if ("upcoming".equals(mode)) {
                 switch (position) {
                     case 0:
                         return new PendingAcceptedAndcompletedCanceledFragment(PENDING);
@@ -93,9 +111,7 @@ public class UpcomingAndPastListFragment extends Fragment {
                     default:
                         return null;
                 }
-            }
-            else
-            {
+            } else {
                 switch (position) {
                     case 0:
                         return new PendingAcceptedAndcompletedCanceledFragment(CANCELED);

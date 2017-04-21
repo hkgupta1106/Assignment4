@@ -9,6 +9,7 @@ import android.os.Parcelable;
 
 public class BaseModel implements Parcelable {
 
+
     public static final Creator<BaseModel> CREATOR = new Creator<BaseModel>() {
         @Override
         public BaseModel createFromParcel(final Parcel in) {
@@ -20,32 +21,40 @@ public class BaseModel implements Parcelable {
             return new BaseModel[size];
         }
     };
-
-    public static Creator<BaseModel> getCREATOR() {
-        return CREATOR;
+    private String name;
+    /**
+     * @param in asd
+     */
+    protected BaseModel(final Parcel in) {
+        name = in.readString();
     }
 
-    String name;
     /**
-     *
      * @param name name
      */
-    public BaseModel(String name) {
+    public BaseModel(final String name) {
 
         this.name = name;
     }
     /**
      *
+     * @return  creater
+     */
+    public static Creator<BaseModel> getCREATOR() {
+        return CREATOR;
+    }
+
+    /**
      * @return getting name
-     * */
+     */
     public String getName() {
         return name;
     }
+
     /**
-     *
      * @param name setting name
      */
-    public void setName(String name) {
+    public void setName(final String name) {
         this.name = name;
     }
 
@@ -54,16 +63,13 @@ public class BaseModel implements Parcelable {
         return 0;
     }
 
+    /**
+     *
+     * @param dest dest
+     * @param flags flags
+     */
     @Override
     public void writeToParcel(final Parcel dest, final int flags) {
         dest.writeString(name);
-    }
-
-    /**
-     *
-     * @param in asd
-     */
-    protected BaseModel(final Parcel in) {
-        name = in.readString();
     }
 }
